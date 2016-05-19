@@ -2,6 +2,8 @@ package com.company.umeng;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -51,10 +53,10 @@ public class UmHttpClient {
             subUrl = subUrl + buildParameter(ACCESS_TOKEN, APP_KEY, data,httpMethod);
             System.out.println("Umeng rest url:" + SERVER_ADDRESS+subUrl);
         }
-        HttpURLConnection urlConnection;
+        HttpsURLConnection urlConnection;
         OutputStream outputStream;
 
-            urlConnection = (HttpURLConnection) new URL((SERVER_ADDRESS+subUrl).trim()).openConnection();
+            urlConnection = (HttpsURLConnection) new URL((SERVER_ADDRESS+subUrl).trim()).openConnection();
             urlConnection.setReadTimeout(SOCKET_TIME_OUT);
             urlConnection.setConnectTimeout(CONNECTION_TIME_OUT);
             setRequestMethod(httpMethod, urlConnection);

@@ -11,7 +11,7 @@ public class Main {
     public static void main(String[] args) {
         UmHttpClient.APP_KEY = "替换成你的AppKey";
         UmHttpClient.APP_SECRECT = "替换成你的AppSecrect";
-        UmHttpClient.SERVER_ADDRESS = "http://rest.test.wsq.umeng.com:8090";
+        UmHttpClient.SERVER_ADDRESS = "https://api.wsq.umeng.com";
         UmHttpClient.SDK_VERSION = "2.5.0";
 
         String accessTokenUrl = "/v2/user/token";// access token接口的地址
