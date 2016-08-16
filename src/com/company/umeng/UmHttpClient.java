@@ -182,18 +182,24 @@ public class UmHttpClient {
      * @param url
      * @return getting access token for the application
      */
-    public String accessTokenRequest(Map<String, Object> data, String url, String APP_SECRET) {
+     public String accessTokenRequest(Map<String, Object> data, String url, String APP_SECRET) {
         String stringData = "";
         try {
             JSONObject jsonObject = new JSONObject(data);
             stringData = jsonObject.toString();
-            String encry_data = AESUtils.getEncryptedMap(stringData, APP_SECRET);
-            data.put("encrypted_data", encry_data);
-            return sentRequest(url, HttpMethod.POST, data);
-        } catch (JSONException e){
+
+
+            String encry_data = AESUtils.getEncryptedMap(stringData.getBytes().length + stringData, APP_SECRET.substring(0,16));
+
+
+            HashMap<String, Object> hashMap = new HashMap<String, Object>();
+            hashMap.put("encrypted_data", encry_data);
+            hashMap.put("aes_key_128", 16);
+            return sentRequest(url, HttpMethod.POST, hashMap);
+        } catch (Exception e){
             System.out.println("Umeng access token request error:"+e.getMessage());
         }
-        return stringData.trim();
+        return stringData;
     }
 
 
