@@ -9,8 +9,8 @@ import java.util.HashMap;
 public class Main {
 
     public static void main(String[] args) {
-        UmHttpClient.APP_KEY = "替换成你的AppKey";
-        UmHttpClient.APP_SECRECT = "替换成你的AppSecrect";
+        UmHttpClient.APP_KEY = "54d19086fd98c540a2001155";
+        UmHttpClient.APP_SECRECT = "de08937649e99e3c81d7924b145b3f79";
         UmHttpClient.SERVER_ADDRESS = "https://api.wsq.umeng.com";
         UmHttpClient.SDK_VERSION = "2.5.0";
 
